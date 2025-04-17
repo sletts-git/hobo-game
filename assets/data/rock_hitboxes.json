@@ -1,0 +1,32 @@
+{
+    "rock_small1.png": {
+        "collision_w_scale": 0.8200000000000002,
+        "collision_h_scale": 0.5,
+        "collision_offset_y": 0.0,
+        "collision_offset_x": 0
+    },
+    "rock_small2.png": {
+        "collision_w_scale": 0.7600000000000001,
+        "collision_h_scale": 0.5,
+        "collision_offset_y": 0.0,
+        "collision_offset_x": 0
+    },
+    "rock_medium1.png": {
+        "collision_w_scale": 0.8000000000000002,
+        "collision_h_scale": 0.53,
+        "collision_offset_y": 0,
+        "collision_offset_x": 0
+    },
+    "rock_medium2.png": {
+        "collision_w_scale": 1.0000000000000002,
+        "collision_h_scale": 0.5,
+        "collision_offset_y": 0,
+        "collision_offset_x": 0
+    },
+    "rock_large1.png": {
+        "collision_w_scale": 0.7900000000000001,
+        "collision_h_scale": 0.5,
+        "collision_offset_y": 0,
+        "collision_offset_x": 0
+    }
+}

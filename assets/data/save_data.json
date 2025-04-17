@@ -1,0 +1,13 @@
+{
+    "selected_character": "Hobo",
+    "unlocked_characters": [
+        "Wizard"
+    ],
+    "unlocked_attacks": [
+        "basic"
+    ],
+    "volume": {
+        "sfx": 1.0,
+        "music": 1.0
+    }
+}

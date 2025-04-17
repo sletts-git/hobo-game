@@ -1,0 +1,32 @@
+{
+  "tree_basic_green2.png": {
+    "collision_w_scale": 0.32,
+    "collision_h_scale": 0.25,
+    "collision_offset_x": 0.35,
+    "collision_offset_y": -4.0
+  },
+  "tree_basic_green1.png": {
+    "collision_w_scale": 0.3,
+    "collision_h_scale": 0.25,
+    "collision_offset_x": 0.28,
+    "collision_offset_y": -3.57
+  },
+  "tree_basic_green3.png": {
+    "collision_w_scale": 0.3,
+    "collision_h_scale": 0.25,
+    "collision_offset_x": 0.2,
+    "collision_offset_y": -3.8
+  },
+  "tree_dead.png": {
+    "collision_w_scale": 0.3,
+    "collision_h_scale": 0.25,
+    "collision_offset_x": 0.12,
+    "collision_offset_y": -3.2
+  },
+  "rock_large1.png": {
+    "collision_w_scale": 1.79,
+    "collision_h_scale": 0.73,
+    "collision_offset_x": 0.66,
+    "collision_offset_y": -0.76
+  }
+}

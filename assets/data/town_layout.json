@@ -1,0 +1,68 @@
+{
+  "objects": [
+    {
+      "filename": "hut1.png",
+      "x": 240,
+      "y": 20,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flipped": false,
+      "has_collision": true,
+      "has_door": true,
+      "interior_id": "hut_interior1"
+    },
+    {
+      "filename": "hut2.png",
+      "x": 600,
+      "y": 160,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "flipped": false,
+      "has_collision": true,
+      "has_door": true,
+      "interior_id": "hut_interior1"
+    }
+  ],
+  "hitboxes": {
+    "hut1.png": {
+      "collision_w_scale": 0.47,
+      "collision_h_scale": 0.1899999999999999,
+      "collision_offset_right_scale": 0.4,
+      "collision_offset_up_scale": 1.0,
+      "door_w_scale": 0.3,
+      "door_h_scale": 0.3200000000000001,
+      "door_offset_right_scale": 0.5,
+      "door_offset_up_scale": 0.0
+    },
+    "hut2.png": {
+      "collision_w_scale": 0.43999999999999995,
+      "collision_h_scale": 0.27999999999999997,
+      "collision_offset_right_scale": 0.5,
+      "collision_offset_up_scale": 1.0,
+      "door_w_scale": 0.3,
+      "door_h_scale": 0.2,
+      "door_offset_right_scale": 0.5,
+      "door_offset_up_scale": 0.0
+    },
+    "fire1.png": {
+      "collision_w_scale": 0.5,
+      "collision_h_scale": 0.3,
+      "collision_offset_right_scale": 0.5,
+      "collision_offset_up_scale": 1.0,
+      "door_w_scale": 0.3,
+      "door_h_scale": 0.2,
+      "door_offset_right_scale": 0.5,
+      "door_offset_up_scale": 0.0
+    },
+    "log_weapon.png": {
+      "collision_w_scale": 0.5,
+      "collision_h_scale": 0.3,
+      "collision_offset_right_scale": 0.5,
+      "collision_offset_up_scale": 1.0,
+      "door_w_scale": 0.3,
+      "door_h_scale": 0.2,
+      "door_offset_right_scale": 0.5,
+      "door_offset_up_scale": 0.0
+    }
+  }
+}

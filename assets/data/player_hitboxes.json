@@ -1,0 +1,12 @@
+{
+  "Hobo": {
+    "w": 0.51,
+    "h": 0.24,
+    "x_off": -0.25,
+    "y_off": -0.15,
+    "bullet_x_off": 30,
+    "bullet_y_off": -65,
+    "bullet_scale_x": 0.35,
+    "bullet_scale_y": 0.25
+  }
+}
