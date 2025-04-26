@@ -2,6 +2,8 @@ import pygame
 import os
 import math
 
+DEBUG_DRAW_BOX = False
+
 # Init Pygame
 pygame.init()
 WIDTH, HEIGHT = 1260, 700
@@ -15,14 +17,14 @@ from biome_map import get_biome_map_colliders
 from world import get_render_data
 from input import get_movement_direction, should_fire
 import save_manager
+import world
 import game_state
 from bullet import Bullet
 from main_menu import MainMenu
-import world
 
 # Constants
 WORLD_WIDTH, WORLD_HEIGHT = WIDTH * 4, HEIGHT * 4
-FPS = 90
+FPS = 60
 DIRECTION_ANGLES = {
     "right": 0, "up-right": -math.pi / 4, "up": -math.pi / 2, "up-left": -3 * math.pi / 4,
     "left": math.pi, "down-left": 3 * math.pi / 4, "down": math.pi / 2, "down-right": math.pi / 4
@@ -130,12 +132,18 @@ while running:
         )
 
         # Draw tile_layers
-        #trees = get_biome_map_colliders()[0]
-        #renderer.draw_hitboxes(player,[],[], camera_x, camera_y)
-        renderer.draw(player, camera_x, camera_y, bullets, [], [], [],
-                      tile_layers, render_objects, center_chunk)#, tree_colliders=trees)
-        # debug_font = pygame.font.SysFont(None, 20)
-        # renderer.draw_debug_chunks(world._loaded_chunks, camera_x, camera_y, debug_font)
+        if DEBUG_DRAW_BOX == True:
+            trees = get_biome_map_colliders()[0]
+            rocks = get_biome_map_colliders()[1]
+            all_map_colliders = trees + rocks
+            renderer.draw_hitboxes(player,[],[], camera_x, camera_y)
+            renderer.draw(player, camera_x, camera_y, bullets, [], [], [],
+                          tile_layers, render_objects, center_chunk, tree_colliders=trees)
+            debug_font = pygame.font.SysFont(None, 20)
+            renderer.draw_debug_chunks(world._loaded_chunks, camera_x, camera_y, debug_font)
+        else:
+            renderer.draw(player, camera_x, camera_y, bullets, [], [], [],
+                          tile_layers, render_objects, center_chunk)
 
     # Update Display
     pygame.display.flip()

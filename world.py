@@ -4,6 +4,8 @@ import math
 import pygame
 import json
 from biome_map import draw_ground, get_biome_at, get_tile_for_biome
+import threading
+from queue import Queue
 
 TILE_SIZE = 150
 CHUNK_SIZE = 5  # in tiles
@@ -15,6 +17,18 @@ _last_active_chunk = None
 
 OBJECT_ASSET_DIR = os.path.join("assets", "world")
 TILE_ASSET_DIR = os.path.join("assets", "world", "tiles", "world")
+
+chunk_load_queue = Queue()
+_loaded_chunks_lock = threading.Lock()
+
+def _chunk_loader_thread():
+    while True:
+        chunk = chunk_load_queue.get()
+        if chunk is None:
+            break
+        with _loaded_chunks_lock:
+            if chunk not in _loaded_chunks:
+                generate_chunk(*chunk)
 
 def load_image(name):
     if name not in _asset_cache:
@@ -95,12 +109,14 @@ def _update_loaded_chunks(center_chunk):
     }
 
     for chunk in target_chunks:
-        if chunk not in _loaded_chunks:
-            generate_chunk(*chunk)
+        with _loaded_chunks_lock:
+            if chunk not in _loaded_chunks:
+                chunk_load_queue.put(chunk)
 
-    for chunk in list(_loaded_chunks):
-        if chunk not in target_chunks:
-            del _loaded_chunks[chunk]
+    with _loaded_chunks_lock:
+        for chunk in list(_loaded_chunks):
+            if chunk not in target_chunks:
+                del _loaded_chunks[chunk]
 
 
 def get_render_data(camera_x, camera_y, player_x=None, player_y=None, screen_width=1260, screen_height=700):
@@ -121,9 +137,10 @@ def get_render_data(camera_x, camera_y, player_x=None, player_y=None, screen_wid
 
     _update_loaded_chunks(center_chunk)
 
-    for (cx, cy), (tiles, objects) in _loaded_chunks.items():
-        tile_layers.extend(tiles)
-        render_objects.extend(objects)
+    with _loaded_chunks_lock:
+        for (cx, cy), (tiles, objects) in _loaded_chunks.items():
+            tile_layers.extend(tiles)
+            render_objects.extend(objects)
 
     return tile_layers, render_objects, center_chunk
 
@@ -132,3 +149,6 @@ def get_tree_colliders():
 
 def get_rock_colliders():
     return _rock_colliders
+
+# Start the chunk loader thread when the module is imported
+threading.Thread(target=_chunk_loader_thread, daemon=True).start()

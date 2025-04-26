@@ -1,2 +1,2 @@
 # hobo-game
- isometric, pseudo infinite biom-generation, with npc interaction
+ isometric, pseudo infinite biome-generation

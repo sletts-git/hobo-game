@@ -130,8 +130,8 @@ def spawn_natural_assets(tx, ty, biome, placed_assets):
     if tree_spawn:
         scale = 0.9 + 0.2 * random.random()
         size = int(scale * 140)
-        jitter_x = rng.randint(-TILE_SIZE // 4, TILE_SIZE // 4)
-        jitter_y = rng.randint(-TILE_SIZE // 4, TILE_SIZE // 4)
+        jitter_x = rng.randint(-TILE_SIZE // 3, TILE_SIZE // 3)
+        jitter_y = rng.randint(-TILE_SIZE // 3, TILE_SIZE // 3)
         placed_assets.append({
             "filename": tree,
             "x": world_x + jitter_x,
@@ -162,8 +162,8 @@ def spawn_natural_assets(tx, ty, biome, placed_assets):
         scale = 0.25 + rng.random() * 0.15
         placed_assets.append({
             "filename": bush,
-            "x": world_x + rng.randint(-10, 10),
-            "y": world_y + rng.randint(-10, 10),
+            "x": world_x + rng.randint(-TILE_SIZE // 2, TILE_SIZE // 2),
+            "y": world_y + rng.randint(-TILE_SIZE // 2, TILE_SIZE // 2),
             "scale_x": scale,
             "scale_y": scale
         })
@@ -194,8 +194,8 @@ def spawn_natural_assets(tx, ty, biome, placed_assets):
         g = rng.choice(["grass_green1.png", "grass_green2.png", "grass_green3.png"])
         placed_assets.append({
             "filename": g,
-            "x": world_x + rng.randint(-60, 60),
-            "y": world_y + rng.randint(-60, 60),
+            "x": world_x + rng.randint(-TILE_SIZE // 2, TILE_SIZE // 2),
+            "y": world_y + rng.randint(-TILE_SIZE // 2, TILE_SIZE // 2),
             "scale_x": 0.25,
             "scale_y": 0.25
         })

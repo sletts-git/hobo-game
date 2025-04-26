@@ -318,6 +318,6 @@ class Orc(Enemy):
 def load_characters(audio):
     Character.all_characters.clear()
     #Character("Wizard", "wizard", basic_attack, 30, 3, 15, 6,30, True, audio.get("player_death"))
-    Character("Hobo", "hobo", can, 5, 50, 18, 6,15, True, audio.get("player_death"))
+    Character("Hobo", "hobo", can, 5, 5, 18, 6,15, True, audio.get("player_death"))
     #Character("Placeholder Gunner", "placeholder_gunner", basic_attack, 10, 3, 20, 6,30, False, audio.get("player_death"))
     return Character.all_characters
