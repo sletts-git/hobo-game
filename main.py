@@ -6,7 +6,7 @@ DEBUG_DRAW_BOX = False
 
 # Init Pygame
 pygame.init()
-WIDTH, HEIGHT = 1260, 700
+WIDTH, HEIGHT = 1920, 1080
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Survivor Game")
 

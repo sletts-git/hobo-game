@@ -100,12 +100,11 @@ def generate_chunk(cx, cy):
 
 def _update_loaded_chunks(center_chunk):
     cx, cy = center_chunk
-    print(cx, cy)
 
     target_chunks = {
         (cx + dx, cy + dy)
         for dx in range( -2, 3)
-        for dy in range( -2, 3)
+        for dy in range( -2, 2)
     }
 
     for chunk in target_chunks:
@@ -126,8 +125,8 @@ def get_render_data(camera_x, camera_y, player_x=None, player_y=None, screen_wid
     render_objects = []
 
     # Snap to top-left of the current chunk
-    anchor_x = camera_x
-    anchor_y = camera_y
+    anchor_x = camera_x + (screen_width // 2)
+    anchor_y = camera_y + (screen_height // 2)
 
     center_chunk = (
         int(anchor_x // (CHUNK_SIZE * TILE_SIZE)),
